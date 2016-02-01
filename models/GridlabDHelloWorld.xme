@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE project SYSTEM "mga.dtd">
 
-<project guid="{BA393FEE-AB90-4F00-9BAE-F5D4E3BA03B5}" cdate="Wed Jan 27 20:49:08 2016" mdate="Wed Jan 27 20:49:08 2016" version="" metaguid="{2664F06E-397F-48A5-8AA9-D5E5C8190F07}" metaversion="" metaname="CASIM">
+<project guid="{5065AC0F-5914-4BD3-806C-F81E79C924B1}" cdate="Wed Jan 27 20:49:08 2016" mdate="Wed Jan 27 20:49:08 2016" version="" metaguid="{2664F06E-397F-48A5-8AA9-D5E5C8190F07}" metaversion="" metaname="CASIM">
 	<name>GridlabDHelloWorld</name>
 	<comment></comment>
 	<author></author>
 	<folder id="id-006a-00000001" relid="0x1" childrelidcntr="0x6" kind="RootFolder" guid="{03a660b3-ee63-4f3d-a070-6641fc72bda3}">
 		<name>GridlabDHelloWorld</name>
-		<model id="id-0065-00000001" kind="FOMSheet" guid="{375aaca2-6c89-436a-bad5-a94e70e270d9}" relid="0x1" childrelidcntr="0x24">
+		<model id="id-0065-00000001" kind="FOMSheet" guid="{375aaca2-6c89-436a-bad5-a94e70e270d9}" relid="0x1" childrelidcntr="0x26">
 			<name>Interactions</name>
 			<attribute kind="MelderPackageName" status="meta">
 				<value></value>
@@ -35,66 +35,6 @@
 				<attribute kind="Order" status="meta">
 					<value>timestamp</value>
 				</attribute>
-			</model>
-			<model id="id-0065-00000003" kind="Interaction" role="Interaction" guid="{76df16d6-a7fe-4002-82ed-866843ced196}" relid="0x2" childrelidcntr="0x2">
-				<name>DemandMessage</name>
-				<regnode name="PartRegs" status="undefined">
-					<value></value>
-					<regnode name="Aspect" status="undefined">
-						<value></value>
-						<regnode name="Position" isopaque="yes">
-							<value>560,210</value>
-						</regnode>
-					</regnode>
-				</regnode>
-				<attribute kind="Delivery" status="meta">
-					<value>reliable</value>
-				</attribute>
-				<attribute kind="EnableLogging" status="meta">
-					<value>false</value>
-				</attribute>
-				<attribute kind="LogLevel" status="meta">
-					<value>NORMAL</value>
-				</attribute>
-				<attribute kind="Order">
-					<value>timestamp</value>
-				</attribute>
-				<atom id="id-0066-00000001" kind="Parameter" role="Parameter" guid="{d05652b8-1361-448a-8de1-9998a61da533}" relid="0x1">
-					<name>HouseName</name>
-					<regnode name="PartRegs" status="undefined">
-						<value></value>
-						<regnode name="Aspect" status="undefined">
-							<value></value>
-							<regnode name="Position" isopaque="yes">
-								<value>112,126</value>
-							</regnode>
-						</regnode>
-					</regnode>
-					<attribute kind="Hidden" status="meta">
-						<value>false</value>
-					</attribute>
-					<attribute kind="ParameterType">
-						<value>String</value>
-					</attribute>
-				</atom>
-				<atom id="id-0066-0000000c" kind="Parameter" role="Parameter" guid="{f23715e8-c517-452a-8917-d1ec7687d4bb}" relid="0x2">
-					<name>HeatingSetPoint</name>
-					<regnode name="PartRegs" status="undefined">
-						<value></value>
-						<regnode name="Aspect" status="undefined">
-							<value></value>
-							<regnode name="Position" isopaque="yes">
-								<value>112,175</value>
-							</regnode>
-						</regnode>
-					</regnode>
-					<attribute kind="Hidden" status="meta">
-						<value>false</value>
-					</attribute>
-					<attribute kind="ParameterType">
-						<value>double</value>
-					</attribute>
-				</atom>
 			</model>
 			<model id="id-0065-00000004" kind="Interaction" role="Interaction" guid="{36ff9484-da7b-4121-a380-8a31df4dd21f}" relid="0x4" childrelidcntr="0x0">
 				<name>VeryLowPrio</name>
@@ -462,14 +402,14 @@
 					</attribute>
 				</atom>
 			</model>
-			<model id="id-0065-00000022" kind="Interaction" role="Interaction" guid="{29d55e85-055f-41d1-b478-3129d00174b5}" relid="0x23" childrelidcntr="0x2">
-				<name>MarketMessage</name>
+			<model id="id-0065-0000002e" kind="Interaction" role="Interaction" guid="{d0712fac-b2c3-4c32-9abb-6bc21d72fb03}" relid="0x25" childrelidcntr="0x5">
+				<name>GridlabDMessage</name>
 				<regnode name="PartRegs" status="undefined">
 					<value></value>
 					<regnode name="Aspect" status="undefined">
 						<value></value>
 						<regnode name="Position" isopaque="yes">
-							<value>728,154</value>
+							<value>574,210</value>
 						</regnode>
 					</regnode>
 				</regnode>
@@ -485,8 +425,8 @@
 				<attribute kind="Order">
 					<value>timestamp</value>
 				</attribute>
-				<atom id="id-0066-0000000b" kind="Parameter" role="Parameter" guid="{bfd6b869-08c2-4b53-aef6-bc94f55e3f9a}" relid="0x1">
-					<name>MarketName</name>
+				<atom id="id-0066-0000000e" kind="Parameter" role="Parameter" guid="{b7bb722f-f9e5-440c-8a7e-2a25391ba675}" relid="0x1">
+					<name>ObjectName</name>
 					<regnode name="PartRegs" status="undefined">
 						<value></value>
 						<regnode name="Aspect" status="undefined">
@@ -503,8 +443,26 @@
 						<value>String</value>
 					</attribute>
 				</atom>
-				<atom id="id-0066-0000000d" kind="Parameter" role="Parameter" guid="{0841e46e-bbbf-4515-8a92-0798c245970b}" relid="0x2">
-					<name>Price</name>
+				<atom id="id-0066-0000000f" kind="Parameter" role="Parameter" guid="{4f753c60-38ad-4a18-a4a2-480f8bd1f8ff}" relid="0x2">
+					<name>Value</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>112,224</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="Hidden" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="ParameterType">
+						<value>double</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000010" kind="Parameter" role="Parameter" guid="{d513b25d-35ec-40b3-9bd8-1d773b644142}" relid="0x3">
+					<name>Parameter</name>
 					<regnode name="PartRegs" status="undefined">
 						<value></value>
 						<regnode name="Aspect" status="undefined">
@@ -517,8 +475,44 @@
 					<attribute kind="Hidden" status="meta">
 						<value>false</value>
 					</attribute>
+					<attribute kind="ParameterType" status="meta">
+						<value>String</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000011" kind="Parameter" role="Parameter" guid="{b4e8b4a1-af8c-4bc4-83e0-3cdc2b180345}" relid="0x4">
+					<name>SetValue</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>112,322</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="Hidden" status="meta">
+						<value>false</value>
+					</attribute>
 					<attribute kind="ParameterType">
-						<value>double</value>
+						<value>boolean</value>
+					</attribute>
+				</atom>
+				<atom id="id-0066-00000012" kind="Parameter" role="Parameter" guid="{916d851e-5a38-41fd-b8eb-a6d2de387e1b}" relid="0x5">
+					<name>Units</name>
+					<regnode name="PartRegs" status="undefined">
+						<value></value>
+						<regnode name="Aspect" status="undefined">
+							<value></value>
+							<regnode name="Position" isopaque="yes">
+								<value>112,273</value>
+							</regnode>
+						</regnode>
+					</regnode>
+					<attribute kind="Hidden" status="meta">
+						<value>false</value>
+					</attribute>
+					<attribute kind="ParameterType">
+						<value>String</value>
 					</attribute>
 				</atom>
 			</model>
@@ -552,14 +546,6 @@
 					<value>Ns</value>
 				</regnode>
 				<connpoint role="src" target="id-0065-00000007"/>
-				<connpoint role="dst" target="id-0065-0000000d"/>
-			</connection>
-			<connection id="id-0068-00000005" kind="InteractionInheritance" role="InteractionInheritance" guid="{7274740b-dff5-4ca8-9979-db7d59a0ae48}" relid="0x1c">
-				<name>InteractionInheritance</name>
-				<regnode name="autorouterPref" isopaque="yes">
-					<value>Ns</value>
-				</regnode>
-				<connpoint role="src" target="id-0065-00000003"/>
 				<connpoint role="dst" target="id-0065-0000000d"/>
 			</connection>
 			<connection id="id-0068-00000006" kind="InteractionInheritance" role="InteractionInheritance" guid="{978564d7-2b63-4204-b4bb-37cabe10ea57}" relid="0x1d">
@@ -610,16 +596,16 @@
 				<connpoint role="src" target="id-0065-00000004"/>
 				<connpoint role="dst" target="id-0065-00000007"/>
 			</connection>
-			<connection id="id-0068-00000023" kind="InteractionInheritance" role="InteractionInheritance" guid="{db37647b-c7c4-45ec-a9e7-54e10e4a01f1}" relid="0x24">
+			<connection id="id-0068-00000030" kind="InteractionInheritance" role="InteractionInheritance" guid="{6759be36-6952-4512-9153-6e72c229b04c}" relid="0x26">
 				<name>InteractionInheritance</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>Ns</value>
 				</regnode>
 				<connpoint role="dst" target="id-0065-0000000d"/>
-				<connpoint role="src" target="id-0065-00000022"/>
+				<connpoint role="src" target="id-0065-0000002e"/>
 			</connection>
 		</model>
-		<model id="id-0065-00000023" kind="FOMSheet" guid="{48a06709-fbe9-425f-a0b8-546cf80f198f}" relid="0x5" childrelidcntr="0x10">
+		<model id="id-0065-00000023" kind="FOMSheet" guid="{48a06709-fbe9-425f-a0b8-546cf80f198f}" relid="0x5" childrelidcntr="0x17">
 			<name>Federates</name>
 			<attribute kind="MelderPackageName" status="meta">
 				<value></value>
@@ -741,31 +727,19 @@
 					<value>true</value>
 				</attribute>
 			</model>
-			<reference id="id-0067-00000015" kind="InteractionProxy" role="InteractionProxy" guid="{cbf75890-c9fc-4633-a3f0-eb6b7c237f1f}" relid="0x4" referred="id-0065-00000022">
-				<name>MarketMessage</name>
+			<reference id="id-0067-0000001c" kind="InteractionProxy" role="InteractionProxy" guid="{68fa8471-0936-4490-8324-2d9873e971e9}" relid="0x11" referred="id-0065-0000002e">
+				<name>GridlabDMessage</name>
 				<regnode name="PartRegs" status="undefined">
 					<value></value>
 					<regnode name="Aspect" status="undefined">
 						<value></value>
 						<regnode name="Position" isopaque="yes">
-							<value>616,245</value>
+							<value>665,280</value>
 						</regnode>
 					</regnode>
 				</regnode>
 			</reference>
-			<reference id="id-0067-00000016" kind="InteractionProxy" role="InteractionProxy" guid="{7ef3530f-eb8f-4aa3-b0ab-6c0c934b4acf}" relid="0x5" referred="id-0065-00000003">
-				<name>DemandMessage</name>
-				<regnode name="PartRegs" status="undefined">
-					<value></value>
-					<regnode name="Aspect" status="undefined">
-						<value></value>
-						<regnode name="Position" isopaque="yes">
-							<value>616,392</value>
-						</regnode>
-					</regnode>
-				</regnode>
-			</reference>
-			<connection id="id-0068-00000024" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{29b31cfb-589b-4546-b18d-436225762448}" relid="0x8">
+			<connection id="id-0068-00000031" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{75c26cc2-72d5-48f9-a36e-706e6a20a889}" relid="0x12">
 				<name>StaticInteractionPublish</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>Ew</value>
@@ -777,9 +751,9 @@
 					<value>NORMAL</value>
 				</attribute>
 				<connpoint role="src" target="id-0065-00000025"/>
-				<connpoint role="dst" target="id-0067-00000015"/>
+				<connpoint role="dst" target="id-0067-0000001c"/>
 			</connection>
-			<connection id="id-0068-00000025" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{6b4e243c-9dfe-48d7-837a-f33942778f6e}" relid="0x9">
+			<connection id="id-0068-00000032" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{e531cf26-0bc3-4a14-85c3-cd438718042d}" relid="0x13">
 				<name>StaticInteractionSubscribe</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>Ew</value>
@@ -797,9 +771,9 @@
 					<value>MAPPER_FEDERATES</value>
 				</attribute>
 				<connpoint role="dst" target="id-0065-00000028"/>
-				<connpoint role="src" target="id-0067-00000015"/>
+				<connpoint role="src" target="id-0067-0000001c"/>
 			</connection>
-			<connection id="id-0068-00000026" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{2f1feea2-b293-44b2-9606-b7388e69bb7d}" relid="0xa">
+			<connection id="id-0068-00000034" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{073e39d8-7f2f-4cee-bb16-7216e0032252}" relid="0x14">
 				<name>StaticInteractionPublish</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>We</value>
@@ -811,9 +785,9 @@
 					<value>NORMAL</value>
 				</attribute>
 				<connpoint role="src" target="id-0065-00000028"/>
-				<connpoint role="dst" target="id-0067-00000016"/>
+				<connpoint role="dst" target="id-0067-0000001c"/>
 			</connection>
-			<connection id="id-0068-00000027" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{2dd7d296-b33d-4879-ae34-d817dbecb312}" relid="0xb">
+			<connection id="id-0068-00000035" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{c196d7e5-70c3-434f-93f7-4aba050561de}" relid="0x15">
 				<name>StaticInteractionSubscribe</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>We</value>
@@ -831,9 +805,9 @@
 					<value>MAPPER_FEDERATES</value>
 				</attribute>
 				<connpoint role="dst" target="id-0065-00000029"/>
-				<connpoint role="src" target="id-0067-00000016"/>
+				<connpoint role="src" target="id-0067-0000001c"/>
 			</connection>
-			<connection id="id-0068-00000029" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{6c25a880-2b09-4995-90c5-76f985225d9a}" relid="0xd">
+			<connection id="id-0068-00000036" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{f76590a9-c82d-4d61-9f68-2c79b3a049be}" relid="0x16">
 				<name>StaticInteractionPublish</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>Ew</value>
@@ -845,10 +819,10 @@
 					<value>NORMAL</value>
 				</attribute>
 				<connpoint role="src" target="id-0065-00000029"/>
-				<connpoint role="dst" target="id-0067-00000016"/>
+				<connpoint role="dst" target="id-0067-0000001c"/>
 			</connection>
-			<connection id="id-0068-0000002a" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{ea9b01da-74e0-4eb4-9d43-7fec119655e6}" relid="0xe">
-				<name>StaticInteractionSubscribe</name>
+			<connection id="id-0068-00000037" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{ef2fba1d-97c5-4b9b-be32-faab6749b2a2}" relid="0x17">
+				<name>StaticInteractionPublish</name>
 				<regnode name="autorouterPref" isopaque="yes">
 					<value>Ew</value>
 				</regnode>
@@ -858,48 +832,8 @@
 				<attribute kind="LogLevel" status="meta">
 					<value>NORMAL</value>
 				</attribute>
-				<attribute kind="OriginFedFilter" status="meta">
-					<value>BOTH</value>
-				</attribute>
-				<attribute kind="SrcFedFilter" status="meta">
-					<value>MAPPER_FEDERATES</value>
-				</attribute>
-				<connpoint role="dst" target="id-0065-00000028"/>
-				<connpoint role="src" target="id-0067-00000016"/>
-			</connection>
-			<connection id="id-0068-0000002b" kind="StaticInteractionPublish" role="StaticInteractionPublish" guid="{62b31445-b3f0-4508-92a3-8cb9ec340fb6}" relid="0xf">
-				<name>StaticInteractionPublish</name>
-				<regnode name="autorouterPref" isopaque="yes">
-					<value>We</value>
-				</regnode>
-				<attribute kind="EnableLogging" status="meta">
-					<value>false</value>
-				</attribute>
-				<attribute kind="LogLevel" status="meta">
-					<value>NORMAL</value>
-				</attribute>
-				<connpoint role="src" target="id-0065-00000028"/>
-				<connpoint role="dst" target="id-0067-00000015"/>
-			</connection>
-			<connection id="id-0068-0000002c" kind="StaticInteractionSubscribe" role="StaticInteractionSubscribe" guid="{015d148f-e70f-411c-8b6e-c7a41e4f1ebc}" relid="0x10">
-				<name>StaticInteractionSubscribe</name>
-				<regnode name="autorouterPref" isopaque="yes">
-					<value>We</value>
-				</regnode>
-				<attribute kind="EnableLogging" status="meta">
-					<value>false</value>
-				</attribute>
-				<attribute kind="LogLevel" status="meta">
-					<value>NORMAL</value>
-				</attribute>
-				<attribute kind="OriginFedFilter" status="meta">
-					<value>BOTH</value>
-				</attribute>
-				<attribute kind="SrcFedFilter" status="meta">
-					<value>MAPPER_FEDERATES</value>
-				</attribute>
-				<connpoint role="dst" target="id-0065-00000025"/>
-				<connpoint role="src" target="id-0067-00000015"/>
+				<connpoint role="src" target="id-0065-00000025"/>
+				<connpoint role="dst" target="id-0067-0000001c"/>
 			</connection>
 		</model>
 		<model id="id-0065-00000024" kind="FOMSheet" guid="{b6f7d2fc-e9b3-4c02-8bf5-fc4dbb50436c}" relid="0x6" childrelidcntr="0x3">
