@@ -140,7 +140,7 @@ int main(int argc, char** argv)
       char *args[4];
 
       char* process = "/usr/local/bin/gridlabd";
-      char* model = "/home/c2wt/Projects/c2wt/example/GridlabDHelloWorld/models/gridlab-d/IEEE_13_Node_With_Houses.glm";
+      char* model = "/home/c2wt/Projects/c2wt/examples/GridlabDHelloWorld/models/gridlab-d/IEEE_13_Node_With_Houses.glm";
       char* option = "--server";
       args[0] = process;
       args[1] = model;
