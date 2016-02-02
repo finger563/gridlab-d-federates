@@ -97,9 +97,7 @@ bool GridlabDFederate::call_gld(std::string gld_url,
 
   if (text.length())
     {
-      // parse xml here from r.text
       rapidxml::xml_document<> doc;
-      std::string text;
       doc.parse<0>((char *)text.c_str());
 
       rapidxml::xml_node<> *_type = doc.first_node("property");
@@ -139,9 +137,9 @@ int main(int argc, char** argv)
     {
       char *args[4];
 
-      char* process = "/usr/local/bin/gridlabd";
-      char* model = "/home/c2wt/Projects/c2wt/examples/GridlabDHelloWorld/models/gridlab-d/IEEE_13_Node_With_Houses.glm";
-      char* option = "--server";
+      char process[] = "/usr/local/bin/gridlabd";
+      char model[] = "/home/c2wt/Projects/c2wt/examples/GridlabDHelloWorld/models/gridlab-d/IEEE_13_Node_With_Houses.glm";
+      char option[] = "--server";
       args[0] = process;
       args[1] = model;
       args[2] = option;
