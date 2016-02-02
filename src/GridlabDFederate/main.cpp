@@ -46,7 +46,7 @@ void GridlabDFederate::execute( void )
       std::string units = gldSP->get_Units();
       bool setValue = gldSP->get_SetValue();
       std::cout <<
-	"GLDFederate: Received MarketMessage interaction: " << 
+	"GLDFederate: Received GridlabDMessage interaction: " << 
 	objectName << "/" << parameterName << ": " << value << units << ": " << setValue <<
 	std::endl;
 
@@ -61,13 +61,27 @@ void GridlabDFederate::execute( void )
 	{
 	  if (object.has_data)
 	    {
-	      GridlabDMessageSP gldSP = create_GridlabDMessage();
-	      gldSP->set_ObjectName( object.object );
-	      gldSP->set_Parameter( object.name );
+	      GridlabDMessageSP output = create_GridlabDMessage();
+	      output->set_ObjectName( object.object );
+	      output->set_Parameter( object.name );
 	      // need to split the value into value and units
-	      gldSP->set_Value( atof(object.value.c_str()) );
-	      gldSP->set_Units( object.value );
-	      gldSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
+	      char *pEnd = 0;
+	      value = strtod(object.value.c_str(), &pEnd);
+	      output->set_Value( value );
+	      if (pEnd)
+		{
+		  output->set_Units( std::string(pEnd) ); // there is always a space between the value and units
+		}
+	      output->set_SetValue( false );
+	      std::cout <<
+		"GLDFederate: Sending GridlabDMessage interaction: " << 
+		output->get_ObjectName() << "/" << 
+		output->get_Parameter() << ": " << 
+		output->get_Value() << 
+		output->get_Units() << ": " << 
+		output->get_SetValue() <<
+		std::endl;
+	      output->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 	    }
 	}
     }
