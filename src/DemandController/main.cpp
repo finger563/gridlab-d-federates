@@ -23,7 +23,7 @@ void DemandController::execute( void )
   units = "degF";
 
   std::cout <<
-    "GLDFederate: Sending  interaction: " << 
+    "DemandController: Sending  interaction: " << 
     object << "/" << parameter << ": " << value << units << std::endl;
 
   GridlabDMessageSP gldSP = create_GridlabDMessage();
