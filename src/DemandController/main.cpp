@@ -31,7 +31,7 @@ void DemandController::execute( void )
   gldSP->set_Parameter( parameter );
   gldSP->set_Value( value );
   gldSP->set_Units( units );
-  gldSP->set_SetValue( true );
+  gldSP->set_SetValue( false );
   gldSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 
   // GET MESSAGES HERE FROM HLA

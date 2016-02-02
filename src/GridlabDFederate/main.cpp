@@ -40,7 +40,6 @@ void GridlabDFederate::execute( void )
   while ( (interactionRootSP = getNextInteraction() ) != 0 )
     {
       boost::shared_ptr<GridlabDMessage> gldSP( boost::static_pointer_cast<GridlabDMessage>( interactionRootSP ) );
-      memset(tmpBuf, 0, 1024);
       std::string objectName = gldSP->get_ObjectName();
       std::string parameterName = gldSP->get_Parameter();
       double value = gldSP->get_Value();
@@ -51,7 +50,8 @@ void GridlabDFederate::execute( void )
 	objectName << "/" << parameterName << ": " << value << units << ": " << setValue <<
 	std::endl;
 
-      // SEEND DATA TO GLD; GET DATA FROM GLD
+      // SEND DATA TO GLD; GET DATA FROM GLD
+      memset(tmpBuf, 0, 1024);
       sprintf(tmpBuf, "%f", value);
       gld_url = gld_url_base + objectName + "/" + parameterName;
       if (setValue)
