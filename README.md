@@ -63,22 +63,16 @@ cp src models/*.glm $C2WTROOT/examples/GridlabDHelloWorld/models/gridlab-d/.
 
 Open the copied XME with GME and run the `C2W Main Interpreter` and the `C2W Deployment Interpreter`.
 
-Copy the folders in `src` to `$C2WTROOT/examples/GridlabDHelloWorld/cpp/.`
+Copy everything in `src` to `$C2WTROOT/examples/GridlabDHelloWorld/cpp/.`
 
 ```bash
-cp -r src $C2WTROOT/examples/GridlabDHelloWorld/cpp/.
+cp -r src/* $C2WTROOT/examples/GridlabDHelloWorld/cpp/.
 ```
 
 Build the copied code:
 
 ```bash
-cd $C2WTROOT/examples/GridlabDHelloWorld/cpp/MarketController
-cmake .
-make
-cd ../DemandController
-cmake .
-make
-cd ../GridlabDFederate
+cd $C2WTROOT/examples/GridlabDHelloWorld/cpp
 cmake .
 make
 ```
