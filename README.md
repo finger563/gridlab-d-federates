@@ -33,7 +33,8 @@ Since the gridlab-d federate communicates with GLD through the use of HTTP reque
 sudo apt-get install p7zip-full cmake
 cd ~
 wget http://downloads.cpp-netlib.org/0.11.2/cpp-netlib-0.11.2-final.zip
-7z x cpp-netlib-0.11.2-final.zip cpp-netlib
+7z x cpp-netlib-0.11.2-final.zip
+mv cpp-netlib-0.11.2-final cpp-netlib
 mkdir cpp-netlib-build
 cd cpp-netlib-build
 cmake -DCMAKE_BUILD_TYPE=Debug \
