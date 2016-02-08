@@ -32,7 +32,7 @@ sudo make install
 Since the gridlab-d federate communicates with GLD through the use of HTTP requests, the c++ code for the federate relies on [cpp-netlib 0.11.2](http://cpp-netlib.org).  To download and install cpp-netlib on your machine you must perform the following steps:
 
 ```bash
-sudo apt-get install p7zip-full
+sudo apt-get install p7zip-full cmake
 cd ~
 wget http://downloads.cpp-netlib.org/0.11.2/cpp-netlib-0.11.2-final.zip
 7z x cpp-netlib-0.11.2-final.zip cpp-netlib
@@ -70,4 +70,18 @@ Copy the folders in `src` to `$C2WTROOT/examples/GridlabDHelloWorld/cpp/.`
 
 ```bash
 cp -r src $C2WTROOT/examples/GridlabDHelloWorld/cpp/.
+```
+
+Build the copied code:
+
+```bash
+cd $C2WTROOT/examples/GridlabDHelloWorld/cpp/MarketController
+cmake .
+make
+cd ../DemandController
+cmake .
+make
+cd ../GridlabDFederate
+cmake .
+make
 ```
