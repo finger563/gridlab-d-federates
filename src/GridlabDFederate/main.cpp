@@ -39,14 +39,14 @@ void GridlabDFederate::execute( void )
   // GET MESSAGES HERE FROM HLA
   while ( (interactionRootSP = getNextInteraction() ) != 0 )
     {
-      boost::shared_ptr<GridlabDMessage> gldSP( boost::static_pointer_cast<GridlabDMessage>( interactionRootSP ) );
+      boost::shared_ptr<GridlabDInput> gldSP( boost::static_pointer_cast<GridlabDInput>( interactionRootSP ) );
       std::string objectName = gldSP->get_ObjectName();
       std::string parameterName = gldSP->get_Parameter();
       double value = gldSP->get_Value();
       std::string units = gldSP->get_Units();
       bool setValue = gldSP->get_SetValue();
       std::cout <<
-	"GLDFederate: Received GridlabDMessage interaction: " << 
+	"GLDFederate: Received GridlabDInput interaction: " << 
 	objectName << "/" << parameterName << ": " << value << units << ": " << setValue <<
 	std::endl;
 
@@ -61,7 +61,7 @@ void GridlabDFederate::execute( void )
 	{
 	  if (object.has_data)
 	    {
-	      GridlabDMessageSP output = create_GridlabDMessage();
+	      GridlabDOutputSP output = create_GridlabDOutput();
 	      output->set_ObjectName( object.object );
 	      output->set_Parameter( object.name );
 	      // need to split the value into value and units
@@ -74,7 +74,7 @@ void GridlabDFederate::execute( void )
 		}
 	      output->set_SetValue( false );
 	      std::cout <<
-		"GLDFederate: Sending GridlabDMessage interaction: " << 
+		"GLDFederate: Sending GridlabDOutput interaction: " << 
 		output->get_ObjectName() << "/" << 
 		output->get_Parameter() << ": " << 
 		output->get_Value() << 

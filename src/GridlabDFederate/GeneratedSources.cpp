@@ -1,1 +1,2 @@
-#include "GridlabDMessage.cpp"
+#include "GridlabDInput.cpp"
+#include "GridlabDOutput.cpp"

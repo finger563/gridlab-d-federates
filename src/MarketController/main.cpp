@@ -26,7 +26,7 @@ void MarketController::execute( void )
     "MarketController:  interaction: " << 
     object << "/" << parameter << ": " << value << units << std::endl;
 
-  GridlabDMessageSP gldSP = create_GridlabDMessage();
+  GridlabDInputSP gldSP = create_GridlabDInput();
   gldSP->set_ObjectName( object );
   gldSP->set_Parameter( parameter );
   gldSP->set_Value( value );
