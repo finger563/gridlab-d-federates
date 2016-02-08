@@ -10,7 +10,7 @@ You'll need to install the prerequisites for building gridlab-d:
 sudo apt-get install automake autoconf libtool curl
 ```
 
-THen you can checkout the source code for gridlab-d from the SVN repository:
+Then you can checkout the source code for gridlab-d from the SVN repository:
 
 ```bash
 svn co svn://svn.code.sf.net/p/gridlab-d/code/trunk gridlab-d-code
@@ -48,3 +48,5 @@ sudo make install
 
 ## Setting up the GLD Federates example
 ---------------------------------------
+
+Copy the folders in `src` to `$C2WTROOT/examples/GridlabDHelloWorld/cpp/.`
