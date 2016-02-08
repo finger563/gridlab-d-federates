@@ -27,7 +27,7 @@ include_directories(
   ${C2WTROOT}/generated/core/cpp/include
   )
 
-add_library(generated GeneratedSources.cpp)
+add_library(market_generated GeneratedSources.cpp)
 
 link_directories(${C2WTROOT}/core/src/cpp/SynchronizedFederate)
 link_directories(${RTI_HOME}/lib)
@@ -41,5 +41,5 @@ target_link_libraries(${execName}
   FedTime
   RTI-NG
   boost_system 
-  generated
+  market_generated
   )
