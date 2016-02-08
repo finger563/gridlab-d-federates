@@ -35,7 +35,7 @@ void DemandController::execute( void )
       std::string recv_units = gldoSP->get_Units();
       bool recv_setValue = gldoSP->get_SetValue();
       std::cout <<
-	"GLDFederate: Received GridlabDOutput interaction: " << 
+	"DemandController: Received GridlabDOutput interaction: " << 
 	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_setValue <<
 	std::endl;
 
