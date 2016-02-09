@@ -34,6 +34,10 @@ void GridlabDFederate::execute( void )
 	   (int)fmod(_currentTime, 60));
   time = std::string(tmpBuf);
   gld_url = gld_url_base + "control/pauseat=" + date + time;
+  std::cout << 
+    "GLDFederate: Stepping GLD to " <<
+    date + time <<
+    std::endl;
   intf_retval = call_gld(gld_url, object);
   
   // GET MESSAGES HERE FROM HLA
