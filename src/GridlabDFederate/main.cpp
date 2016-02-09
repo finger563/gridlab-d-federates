@@ -44,17 +44,23 @@ void GridlabDFederate::execute( void )
       std::string parameterName = gldSP->get_Parameter();
       double value = gldSP->get_Value();
       std::string units = gldSP->get_Units();
-      bool setValue = gldSP->get_SetValue();
+      int operation = gldSP->get_Operation();
+      
+      // operation:
+      //  0 : GET
+      //  1 : SET
+      //  ... : UNDEFINED
+
       std::cout <<
 	"GLDFederate: Received GridlabDInput interaction: " << 
-	objectName << "/" << parameterName << ": " << value << units << ": " << setValue <<
+	objectName << "/" << parameterName << ": " << value << units << ": " << operation <<
 	std::endl;
 
       // SEND DATA TO GLD; GET DATA FROM GLD
       memset(tmpBuf, 0, 1024);
       sprintf(tmpBuf, "%f", value);
       gld_url = gld_url_base + objectName + "/" + parameterName;
-      if (setValue)
+      if (operation == 1)
 	gld_url += "=" + std::string(tmpBuf) + units;
       intf_retval = call_gld(gld_url, object);
       if (intf_retval) // everything went well
@@ -72,14 +78,14 @@ void GridlabDFederate::execute( void )
 		{
 		  output->set_Units( std::string(pEnd) ); // there is always a space between the value and units
 		}
-	      output->set_SetValue( false );
+	      output->set_Operation( 0 );
 	      std::cout <<
 		"GLDFederate: Sending GridlabDOutput interaction: " << 
 		output->get_ObjectName() << "/" << 
 		output->get_Parameter() << ": " << 
 		output->get_Value() << 
 		output->get_Units() << ": " << 
-		output->get_SetValue() <<
+		output->get_Operation() <<
 		std::endl;
 	      output->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 	    }

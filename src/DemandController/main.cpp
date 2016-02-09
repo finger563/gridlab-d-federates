@@ -33,10 +33,10 @@ void DemandController::execute( void )
       std::string recv_parameterName = gldoSP->get_Parameter();
       double recv_value = gldoSP->get_Value();
       std::string recv_units = gldoSP->get_Units();
-      bool recv_setValue = gldoSP->get_SetValue();
+      int recv_operation = gldoSP->get_Operation();
       std::cout <<
 	"DemandController: Received GridlabDOutput interaction: " << 
-	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_setValue <<
+	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_operation <<
 	std::endl;
 
       if (!strcmp(recv_objectName.c_str(), "Market_1"))
@@ -53,15 +53,15 @@ void DemandController::execute( void )
 
       // SEND DATA TO GLD; GET DATA FROM GLD
       std::cout <<
-	"DemandController: Sending  interaction: " << 
-	object << "/" << parameter << ": " << value << units << std::endl;
+	"DemandController: sending GridlabDInput interaction: " << 
+	object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
 
       GridlabDInputSP gldiSP = create_GridlabDInput();
       gldiSP->set_ObjectName( object );
       gldiSP->set_Parameter( parameter );
       gldiSP->set_Value( value );
       gldiSP->set_Units( units );
-      gldiSP->set_SetValue( true );
+      gldiSP->set_Operation( 1 );
       gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
     }
 

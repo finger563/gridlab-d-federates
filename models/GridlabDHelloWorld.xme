@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE project SYSTEM "mga.dtd">
 
-<project guid="{588349B3-B030-4E37-BB21-75FC31CF02D3}" cdate="Mon Feb 08 16:08:03 2016" mdate="Mon Feb 08 16:08:03 2016" version="" metaguid="{2664F06E-397F-48A5-8AA9-D5E5C8190F07}" metaversion="" metaname="CASIM">
+<project guid="{DA819C48-D14A-4A77-89E3-AA0DEFEE9B41}" cdate="Mon Feb 08 16:08:03 2016" mdate="Mon Feb 08 16:08:03 2016" version="" metaguid="{2664F06E-397F-48A5-8AA9-D5E5C8190F07}" metaversion="" metaname="CASIM">
 	<name>GridlabDHelloWorld</name>
 	<comment></comment>
 	<author></author>
@@ -480,7 +480,7 @@
 					</attribute>
 				</atom>
 				<atom id="id-0066-0000000b" kind="Parameter" role="Parameter" guid="{b4e8b4a1-af8c-4bc4-83e0-3cdc2b180345}" relid="0x4">
-					<name>SetValue</name>
+					<name>Operation</name>
 					<regnode name="PartRegs" status="undefined">
 						<value></value>
 						<regnode name="Aspect" status="undefined">
@@ -494,7 +494,7 @@
 						<value>false</value>
 					</attribute>
 					<attribute kind="ParameterType">
-						<value>boolean</value>
+						<value>int</value>
 					</attribute>
 				</atom>
 				<atom id="id-0066-0000000c" kind="Parameter" role="Parameter" guid="{916d851e-5a38-41fd-b8eb-a6d2de387e1b}" relid="0x5">
@@ -594,7 +594,7 @@
 					</attribute>
 				</atom>
 				<atom id="id-0066-00000010" kind="Parameter" role="Parameter" guid="{13a4428d-2f89-4a02-b053-13dbb287bae5}" relid="0x4">
-					<name>SetValue</name>
+					<name>Operation</name>
 					<regnode name="PartRegs" status="undefined">
 						<value></value>
 						<regnode name="Aspect" status="undefined">
@@ -608,7 +608,7 @@
 						<value>false</value>
 					</attribute>
 					<attribute kind="ParameterType">
-						<value>boolean</value>
+						<value>int</value>
 					</attribute>
 				</atom>
 				<atom id="id-0066-00000011" kind="Parameter" role="Parameter" guid="{39aeb0eb-edf9-484e-9e45-14cabb3ae98b}" relid="0x5">
@@ -1169,7 +1169,7 @@
 						<value>c2wt</value>
 					</attribute>
 					<attribute kind="SSHPassword">
-						<value>c2WTunnel</value>
+						<value>C2WTunnel</value>
 					</attribute>
 				</model>
 			</model>
