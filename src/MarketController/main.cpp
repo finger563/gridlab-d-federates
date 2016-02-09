@@ -1,5 +1,10 @@
 #include "main.hpp"
 
+double value = 100;
+std::string object = "Market_1";
+std::string parameter = "fixed_price";
+std::string units = "MW";
+
 void MarketController::initialize( void )
 {
   MarketControllerATRCallback gldfedATRCb( *this );
@@ -14,16 +19,19 @@ void MarketController::execute( void )
   // update class variables
   _currentTime += 1;
 
-  // init temporary variables
-  std::string object, parameter, units;
-  double value = 100;
-
-  object = "Market_1";
-  parameter = "fixed_price";
-  units = "MW";
-
   // GET MESSAGES HERE FROM HLA
   InteractionRoot::SP interactionRootSP;
+  std::cout <<
+    "MarketController: sending GridlabDInput interaction: " << 
+    object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
+
+  GridlabDInputSP gldiSP = create_GridlabDInput();
+  gldiSP->set_ObjectName( object );
+  gldiSP->set_Parameter( parameter );
+  gldiSP->set_Value( value );
+  gldiSP->set_Units( units );
+  gldiSP->set_Operation( 1 );
+  gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 
   while ( (interactionRootSP = getNextInteraction() ) != 0 )
     {
@@ -49,19 +57,6 @@ void MarketController::execute( void )
 	      value = 50;
 	    }
 	}
-
-      // SEND DATA TO GLD; GET DATA FROM GLD
-      std::cout <<
-	"MarketController: sending GridlabDInput interaction: " << 
-	object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
-
-      GridlabDInputSP gldiSP = create_GridlabDInput();
-      gldiSP->set_ObjectName( object );
-      gldiSP->set_Parameter( parameter );
-      gldiSP->set_Value( value );
-      gldiSP->set_Units( units );
-      gldiSP->set_Operation( 1 );
-      gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
     }
 
   // Advance Time

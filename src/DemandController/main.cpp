@@ -1,5 +1,10 @@
 #include "main.hpp"
 
+double value = 70;
+std::string object = "house15";
+std::string parameter = "heating_setpoint";
+std::string units = "degF";
+
 void DemandController::initialize( void )
 {
   DemandControllerATRCallback gldfedATRCb( *this );
@@ -14,13 +19,18 @@ void DemandController::execute( void )
   // update class variables
   _currentTime += 1;
 
-  // init temporary variables
-  std::string object, parameter, units;
-  double value = 70;
+  // SEND DATA TO GLD; GET DATA FROM GLD
+  std::cout <<
+    "DemandController: sending GridlabDInput interaction: " << 
+    object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
 
-  object = "house15";
-  parameter = "heating_setpoint";
-  units = "degF";
+  GridlabDInputSP gldiSP = create_GridlabDInput();
+  gldiSP->set_ObjectName( object );
+  gldiSP->set_Parameter( parameter );
+  gldiSP->set_Value( value );
+  gldiSP->set_Units( units );
+  gldiSP->set_Operation( 1 );
+  gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 
   // GET MESSAGES HERE FROM HLA
   // init temporary variables
@@ -50,19 +60,6 @@ void DemandController::execute( void )
 	      value = 70;
 	    }
 	}
-
-      // SEND DATA TO GLD; GET DATA FROM GLD
-      std::cout <<
-	"DemandController: sending GridlabDInput interaction: " << 
-	object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
-
-      GridlabDInputSP gldiSP = create_GridlabDInput();
-      gldiSP->set_ObjectName( object );
-      gldiSP->set_Parameter( parameter );
-      gldiSP->set_Value( value );
-      gldiSP->set_Units( units );
-      gldiSP->set_Operation( 1 );
-      gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
     }
 
   // Advance Time
