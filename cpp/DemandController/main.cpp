@@ -44,19 +44,23 @@ void DemandController::execute( void )
       double recv_value = gldoSP->get_Value();
       std::string recv_units = gldoSP->get_Units();
       int recv_operation = gldoSP->get_Operation();
+      /*
       std::cout <<
 	"DemandController: Received GridlabDOutput interaction: " << 
 	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_operation <<
 	std::endl;
-
+      */
       if (!strcmp(recv_objectName.c_str(), "Market_1"))
 	{
-	  if (recv_value > 100)
+	  //std::cout << "Received current market price: " << recv_value << std::endl;
+	  if (recv_value > 100 and value == 70)
 	    {
+	      std::cout << "Market price has increased too much, lowering demand." << std::endl;
 	      value = 60;
 	    }
-	  else
+	  else if (recv_value <= 100 and value == 60)
 	    {
+	      std::cout << "Market price has decreased enough, increasing demand." << std::endl;
 	      value = 70;
 	    }
 	}

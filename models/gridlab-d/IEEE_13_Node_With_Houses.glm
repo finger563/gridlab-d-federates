@@ -9,7 +9,7 @@
 
 clock {
 	timestamp '2000-01-01 0:00:00';
-	stoptime '2000-01-01 1:00:00';
+	stoptime '2020-01-01 0:00:00';
 	timezone UTC0;//CST6;//EST+8EDT;
 }
 

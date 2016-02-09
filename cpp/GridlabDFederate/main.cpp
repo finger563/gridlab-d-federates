@@ -106,7 +106,7 @@ bool GridlabDFederate::call_gld(std::string gld_url,
   ret_obj.name = "";
   ret_obj.value = "";
 
-  std::cout << "Connecting to: " << gld_url << std::endl;
+  // std::cout << "Connecting to: " << gld_url << std::endl;
   using namespace boost::network;
   http::client client;
   http::client::request request(gld_url);

@@ -1,6 +1,6 @@
 #include "main.hpp"
 
-double value = 100;
+double value = 50;
 std::string object = "Market_1";
 std::string parameter = "fixed_price";
 std::string units = "MW";
@@ -41,19 +41,23 @@ void MarketController::execute( void )
       double recv_value = gldoSP->get_Value();
       std::string recv_units = gldoSP->get_Units();
       int recv_operation = gldoSP->get_Operation();
+      /*
       std::cout <<
 	"MarketController: Received GridlabDOutput interaction: " << 
 	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_operation <<
 	std::endl;
-
+      */
       if (!strcmp(recv_objectName.c_str(), "house15"))
 	{
-	  if (recv_value > 65)
+	  //std::cout << "Received current demand: " << recv_value << std::endl;
+	  if (recv_value > 65 and value == 50)
 	    {
+	      std::cout << "Demand has increased too much, increasing price." << std::endl;
 	      value = 150;
 	    }
-	  else
+	  else if (recv_value <= 65 and value == 150)
 	    {
+	      std::cout << "Demand has decreased enough, lowering price." << std::endl;
 	      value = 50;
 	    }
 	}
