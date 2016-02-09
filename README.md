@@ -53,27 +53,24 @@ sudo make install
 
 ## Setting up the GLD Federates example
 
-Make the `GridlabDHelloWorld` example folders in `$C2WTROOT`:
+Make the `GridlabDHelloWorld` example folder in `$C2WTROOT`:
 
 ```bash
-mkdir -p $C2WTROOT/examples/GridlabDHelloWorld/models/gme
-mkdir -p $C2WTROOT/examples/GridlabDHelloWorld/models/gridlab-d
-mkdir -p $C2WTROOT/examples/GridlabDHelloWorld/cpp/
+mkdir -p $C2WTROOT/examples/GridlabDHelloWorld
 ```
 
 Copy the model files to their respective locations:
 
 ```bash
-cp src models/*.xme $C2WTROOT/examples/GridlabDHelloWorld/models/gme/.
-cp src models/*.glm $C2WTROOT/examples/GridlabDHelloWorld/models/gridlab-d/.
+cp -r models $C2WTROOT/examples/GridlabDHelloWorld/.
 ```
 
 Open the copied XME with GME and run the `C2W Main Interpreter` and the `C2W Deployment Interpreter`.
 
-Copy everything in `src` to `$C2WTROOT/examples/GridlabDHelloWorld/cpp/.`
+Copy `cpp` to `$C2WTROOT/examples/GridlabDHelloWorld`
 
 ```bash
-cp -r src/* $C2WTROOT/examples/GridlabDHelloWorld/cpp/.
+cp -r cpp $C2WTROOT/examples/GridlabDHelloWorld/.
 ```
 
 ### Build the copied code:
