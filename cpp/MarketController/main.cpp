@@ -5,6 +5,8 @@ std::string object = "Market_1";
 std::string parameter = "fixed_price";
 std::string units = "MW";
 
+bool setValue = true;
+
 void MarketController::initialize( void )
 {
   MarketControllerATRCallback gldfedATRCb( *this );
@@ -19,18 +21,20 @@ void MarketController::execute( void )
   // update class variables
   _currentTime += 1;
 
+  int operation = (int)setValue;
+
   // GET MESSAGES HERE FROM HLA
   InteractionRoot::SP interactionRootSP;
   std::cout <<
     "MarketController: sending GridlabDInput interaction: " << 
-    object << "/" << parameter << ": " << value << units << ": " << 1 << std::endl;
+    object << "/" << parameter << ": " << value << units << ": " << operation << std::endl;
 
   GridlabDInputSP gldiSP = create_GridlabDInput();
   gldiSP->set_ObjectName( object );
   gldiSP->set_Parameter( parameter );
   gldiSP->set_Value( value );
   gldiSP->set_Units( units );
-  gldiSP->set_Operation( 1 );
+  gldiSP->set_Operation( operation );
   gldiSP->sendInteraction( getRTI(), _currentTime + getLookAhead() );
 
   while ( (interactionRootSP = getNextInteraction() ) != 0 )
@@ -41,25 +45,24 @@ void MarketController::execute( void )
       double recv_value = gldoSP->get_Value();
       std::string recv_units = gldoSP->get_Units();
       int recv_operation = gldoSP->get_Operation();
-      /*
-      std::cout <<
-	"MarketController: Received GridlabDOutput interaction: " << 
-	recv_objectName << "/" << recv_parameterName << ": " << recv_value << recv_units << ": " << recv_operation <<
-	std::endl;
-      */
-      if (!strcmp(recv_objectName.c_str(), "house15"))
+
+      if (!strcmp(recv_objectName.c_str(), "house15") and setValue)
 	{
-	  //std::cout << "Received current demand: " << recv_value << std::endl;
+	  std::cout << "Received current demand: " << recv_value << std::endl;
 	  if (recv_value > 65 and value == 50)
 	    {
 	      std::cout << "Demand has increased too much, increasing price." << std::endl;
 	      value = 150;
 	    }
-	  else if (recv_value <= 65 and value == 150)
+	  else if (recv_value < 65 and value == 150)
 	    {
 	      std::cout << "Demand has decreased enough, lowering price." << std::endl;
 	      value = 50;
 	    }
+	}
+      else if (!strcmp(recv_objectName.c_str(), object.c_str()) and !setValue)
+	{
+	  std::cout << "Received current price: " << recv_value << std::endl;
 	}
     }
 
@@ -70,6 +73,19 @@ void MarketController::execute( void )
 
 int main(int argc, char** argv)
 {
+  for (int i=0; i<argc; i++)
+    {
+      if (!strcmp(argv[i],"--monitor"))
+	{
+	  setValue = false;
+	}
+    }
+
+  if (setValue)
+    std::cout << "MarketController entering Controller mode." << std::endl;
+  else
+    std::cout << "MarketController entering Monitor mode." << std::endl;
+
   std::cout << "Creating MarketController Object" << std::endl;
   MarketController gldfed( argc, argv );
   std::cout << "MarketController created" << std::endl;

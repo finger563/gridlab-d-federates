@@ -34,6 +34,7 @@ void GridlabDFederate::execute( void )
 	   (int)fmod(_currentTime, 60));
   time = std::string(tmpBuf);
   gld_url = gld_url_base + "control/pauseat=" + date + time;
+  intf_retval = call_gld(gld_url, object);
   std::cout << 
     "GLDFederate: Stepping GLD to " <<
     date + time <<
@@ -67,6 +68,7 @@ void GridlabDFederate::execute( void )
       if (operation == 1)
 	gld_url += "=" + std::string(tmpBuf) + units;
       intf_retval = call_gld(gld_url, object);
+      std::cout << intf_retval << " " << object.has_data << std::endl;
       if (intf_retval) // everything went well
 	{
 	  if (object.has_data)
@@ -161,7 +163,7 @@ int main(int argc, char** argv)
     {
       char *args[4];
 
-      char process[] = "/usr/local/bin/gridlabd";
+      char process[] = "/usr/bin/gridlabd";
       char model[] = "/home/c2wt/Projects/c2wt/examples/GridlabDHelloWorld/models/gridlab-d/IEEE_13_Node_With_Houses.glm";
       char option[] = "--server";
       args[0] = process;
