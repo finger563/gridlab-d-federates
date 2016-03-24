@@ -3,6 +3,8 @@ This repository contains the model and business logic code for market and demand
 
 ## Updating for Java Development
 
+This step is only required for building the federates using the `ant` build system and building the requisite java wrappers (the federate itself is c++).
+
 ```bash
 sudo apt-get install openjdk-7-jdk ant
 ```
